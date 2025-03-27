@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "Pritik Sha",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 150.6, "left": -6.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -57, "left": -163.8, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": -69.2, "left": 249.6, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo2", "top": 7.6, "left": 249.6, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo3", "top": -165.2, "left": 240, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": 240.5,
+      "left": -12.3,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 240,
+      "left": 172.8,
+      "rotate": 180,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "servo2:PWM", "uno:3", "gold", [ "h-86.4", "v-191.8", "h-57.6" ] ],
+    [ "servo1:PWM", "uno:5", "blue", [ "h-57.6", "v-105.4", "h-96" ] ],
+    [ "servo3:PWM", "uno:6", "green", [ "h0" ] ],
+    [ "uno:5V", "bb1:tp.1", "red", [ "v0" ] ],
+    [ "uno:GND.2", "bb1:tn.1", "black", [ "v0" ] ],
+    [ "servo1:V+", "bb1:tp.10", "red", [ "h0" ] ],
+    [ "servo1:GND", "bb1:tn.11", "black", [ "h0" ] ],
+    [ "servo2:V+", "bb1:tp.13", "red", [ "h0" ] ],
+    [ "servo2:GND", "bb1:tn.14", "black", [ "h0" ] ],
+    [ "servo3:V+", "bb1:tp.15", "red", [ "h0" ] ],
+    [ "servo3:GND", "bb1:tn.16", "black", [ "h0" ] ],
+    [ "bb1:8t.a", "bb1:tp.6", "red", [ "v0" ] ],
+    [ "bb1:5t.a", "bb1:tn.4", "black", [ "v0" ] ],
+    [ "bb1:21t.a", "uno:4", "gold", [ "v-182.4", "h-153.6" ] ],
+    [ "bb1:22t.a", "bb1:tn.18", "black", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "bb1:8t.e", "", [ "$bb" ] ],
+    [ "ultrasonic1:TRIG", "bb1:7t.e", "", [ "$bb" ] ],
+    [ "ultrasonic1:ECHO", "bb1:6t.e", "", [ "$bb" ] ],
+    [ "ultrasonic1:GND", "bb1:5t.e", "", [ "$bb" ] ],
+    [ "bz1:1", "bb1:22t.e", "", [ "$bb" ] ],
+    [ "bz1:2", "bb1:21t.e", "", [ "$bb" ] ],
+    [ "bb1:6t.a", "uno:11", "purple", [ "v-163.2", "h-86.4" ] ],
+    [ "bb1:7t.a", "uno:10", "cyan", [ "v-172.8", "h-76.8" ] ]
+  ],
+  "dependencies": {}
+}
